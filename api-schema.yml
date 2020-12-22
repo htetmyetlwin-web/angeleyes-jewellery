@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: angeleyes-jewellery
+servers:
+  - url: 'http://localhost:8000/api/v1'
+    description: Development server
+paths:
+  /products/{productId}:
+    get:
+      summary: 'Get detail of a product'
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          description: "Id of product"
+          schema:
+            type: integer
+            example: 10
+      responses:
+        '200':
+          description: 'Sample response'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id: 
+                    type: integer
+                  name:
+                    type: string
+                  photos:
+                    type: array
+                    items:
+                      type: string
+                      format: url
+                  price:
+                    type: integer
+                  discount_price:
+                    type: integer
+                    nullable: true
+                  description:
+                    type: string
+                  stock:
+                    type: integer
